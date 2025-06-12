@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router'
-import { LayoutApp } from './layouts'
+import { LayoutApp, LayoutAuth } from './layouts'
 import { PageHome } from './pages'
+import { PageLogin } from './pages/login'
 
 const appRouter = createBrowserRouter([
   {
@@ -10,6 +11,17 @@ const appRouter = createBrowserRouter([
       {
         index: true,
         element: <PageHome />,
+      },
+    ],
+  },
+  {
+    path: '/auth',
+    element: <LayoutAuth />,
+    children: [
+      {
+        index: true,
+        path: 'login',
+        element: <PageLogin />,
       },
     ],
   },
