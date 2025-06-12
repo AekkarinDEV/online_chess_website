@@ -7,6 +7,7 @@ export const ThemeController = ({ children }: { children: ReactNode }) => {
     palette: {
       mode: 'dark',
     },
+    
   })
   return (
     <ThemeProvider theme={appTheme}>
