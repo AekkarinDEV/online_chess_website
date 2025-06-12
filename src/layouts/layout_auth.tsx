@@ -1,6 +1,7 @@
 import { Box } from '@mui/material'
 import { useEffect } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router'
+import { ThemeController } from '../theme/theme'
 
 export const LayoutAuth = () => {
   const navigate = useNavigate()
@@ -12,16 +13,18 @@ export const LayoutAuth = () => {
   }, [navigate, location])
 
   return (
-    <Box
-      sx={{
-        width: '100dvw',
-        height: '100dvh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <Outlet />
-    </Box>
+    <ThemeController>
+      <Box
+        sx={{
+          width: '100dvw',
+          height: '100dvh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Outlet />
+      </Box>
+    </ThemeController>
   )
 }
