@@ -1,7 +1,6 @@
 import { createBrowserRouter } from 'react-router'
 import { LayoutApp, LayoutAuth } from './layouts'
-import { PageHome } from './pages'
-import { PageLogin } from './pages/login'
+import { PageHome, PageSignin, PageSignUp } from './pages'
 
 const appRouter = createBrowserRouter([
   {
@@ -20,8 +19,13 @@ const appRouter = createBrowserRouter([
     children: [
       {
         index: true,
-        path: 'login',
-        element: <PageLogin />,
+        path: 'sign_in',
+        element: <PageSignin />,
+      },
+      {
+        index: true,
+        path: 'sign_up',
+        element: <PageSignUp />,
       },
     ],
   },
