@@ -8,7 +8,7 @@ export const LayoutAuth = () => {
   const location = useLocation()
   useEffect(() => {
     if (location.pathname === '/auth') {
-      navigate('/auth/login')
+      navigate('/auth/sign_in')
     }
   }, [navigate, location])
 

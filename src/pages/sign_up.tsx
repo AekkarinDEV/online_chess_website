@@ -1,11 +1,15 @@
-import { Box, Button, FormControl, Link, Paper, styled, TextField, Typography } from '@mui/material'
+import { useNavigate } from 'react-router'
+import styled from 'styled-components'
+import { Paper, Box, Button, FormControl, Typography, TextField, Link } from '@mui/material'
 
-export const PageLogin = () => {
-  const LoginContainer = styled(Paper)(() => ({
-    width: '300px',
-    padding: '10px',
-    paddingBottom: '30px',
-  }))
+const LoginContainer = styled(Paper)(() => ({
+  width: '300px',
+  padding: '10px',
+  paddingBottom: '30px',
+}))
+export const PageSignUp = () => {
+  const navigate = useNavigate()
+
   return (
     <LoginContainer elevation={10}>
       <Box
@@ -37,8 +41,9 @@ export const PageLogin = () => {
             fontWeight: 800,
           }}
         >
-          Hello! Player
+          Sign up account
         </Typography>
+        <Typography variant="caption">please fill required infomation</Typography>
         <Box
           component={'form'}
           sx={{
@@ -66,6 +71,20 @@ export const PageLogin = () => {
           <FormControl fullWidth>
             <TextField
               fullWidth
+              id="usename"
+              type="username"
+              required
+              name="username"
+              label="username"
+              placeholder="inwza007"
+              sx={{
+                padding: '1px',
+              }}
+            />
+          </FormControl>
+          <FormControl fullWidth>
+            <TextField
+              fullWidth
               id="password"
               type="password"
               required
@@ -73,11 +92,21 @@ export const PageLogin = () => {
               placeholder="•••••••••"
             />
           </FormControl>
+          <FormControl fullWidth>
+            <TextField
+              fullWidth
+              id="comfirm_password"
+              type="password"
+              required
+              label="comfirm password"
+              placeholder="•••••••••"
+            />
+          </FormControl>
           <Button type="submit" variant="outlined">
-            Sign in
+            Sign up
           </Button>
           <Typography sx={{ alignSelf: 'center' }}>
-            Don&apos;t have an account? <Link>Sign up</Link>
+            Already have an account? <Link onClick={() => navigate('/auth/sign_in')}>Sign in</Link>
           </Typography>
         </Box>
       </Box>
