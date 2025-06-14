@@ -7,6 +7,10 @@ export const LayoutApp = () => {
   const AppContainer = styled(Box)(() => ({
     width: '100dvw',
     height: '100dvh',
+    backgroundImage: 'url("/images/black-wooden-plank.jpg")',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
   }))
 
   return (
