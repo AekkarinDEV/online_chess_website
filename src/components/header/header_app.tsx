@@ -1,6 +1,8 @@
-import { Avatar, Box, IconButton, Typography } from '@mui/material'
+import { Avatar, Box, Drawer, IconButton, Typography } from '@mui/material'
 import DehazeIcon from '@mui/icons-material/Dehaze'
 import styled from 'styled-components'
+import { useState } from 'react'
+import { DrawerMenu } from '../menu'
 
 const HeaderContainer = styled(Box)(() => ({
   width: '100dvw',
@@ -13,6 +15,11 @@ const HeaderContainer = styled(Box)(() => ({
 }))
 
 export const HeaderApp = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false)
+
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setDrawerOpen(newOpen)
+  }
   return (
     <HeaderContainer>
       <Box
@@ -35,8 +42,13 @@ export const HeaderApp = () => {
         </Box>
       </Box>
       <IconButton size="large">
-        <DehazeIcon fontSize="inherit" />
+        <DehazeIcon fontSize="inherit" onClick={toggleDrawer(true)} />
       </IconButton>
+      <Drawer open={drawerOpen} onClose={toggleDrawer(false)} anchor="right">
+        <Box sx={{ width: '250px' }} onClick={toggleDrawer(false)}>
+          <DrawerMenu />
+        </Box>
+      </Drawer>
     </HeaderContainer>
   )
 }
