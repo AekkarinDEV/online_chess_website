@@ -1,13 +1,15 @@
+import { Box, Button, FormControl, Link, Paper, styled, TextField, Typography } from '@mui/material'
 import { useNavigate } from 'react-router'
-import styled from 'styled-components'
-import { Paper, Box, Button, FormControl, Typography, TextField, Link } from '@mui/material'
+import { GoogleIcon } from '../../components/custom_icons'
+import { googleAuthAttemp } from '../../services/authen/google_auth'
 
 const LoginContainer = styled(Paper)(() => ({
   width: '300px',
   padding: '10px',
   paddingBottom: '30px',
 }))
-export const PageSignUp = () => {
+
+export const PageSignin = () => {
   const navigate = useNavigate()
 
   return (
@@ -41,9 +43,9 @@ export const PageSignUp = () => {
             fontWeight: 800,
           }}
         >
-          Sign up account
+          Hello! Player
         </Typography>
-        <Typography variant="caption">please fill required infomation</Typography>
+        <Typography variant="caption">sign in to record your game and score</Typography>
         <Box
           component={'form'}
           sx={{
@@ -54,20 +56,6 @@ export const PageSignUp = () => {
             gap: '10px',
           }}
         >
-          <FormControl fullWidth>
-            <TextField
-              fullWidth
-              id="email"
-              type="email"
-              required
-              name="email"
-              label="email"
-              placeholder="your@email.com"
-              sx={{
-                padding: '1px',
-              }}
-            />
-          </FormControl>
           <FormControl fullWidth>
             <TextField
               fullWidth
@@ -92,22 +80,16 @@ export const PageSignUp = () => {
               placeholder="•••••••••"
             />
           </FormControl>
-          <FormControl fullWidth>
-            <TextField
-              fullWidth
-              id="comfirm_password"
-              type="password"
-              required
-              label="comfirm password"
-              placeholder="•••••••••"
-            />
-          </FormControl>
           <Button type="submit" variant="outlined">
-            Sign up
+            Sign in
           </Button>
           <Typography sx={{ alignSelf: 'center' }}>
-            Already have an account? <Link onClick={() => navigate('/auth/sign_in')}>Sign in</Link>
+            Don&apos;t have an account?{' '}
+            <Link onClick={() => navigate('/auth/sign_up')}>Sign up</Link>
           </Typography>
+          <Button startIcon={<GoogleIcon />} variant="outlined" onClick={googleAuthAttemp}>
+            Sign in with google
+          </Button>
         </Box>
       </Box>
     </LoginContainer>

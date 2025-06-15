@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router'
 import { LayoutApp, LayoutAuth } from './layouts'
-import { PageHome, PageSignin, PageSignUp } from './pages'
+import { GoogleCallback, PageHome, PageSignin, PageSignUp } from './pages'
 
 const appRouter = createBrowserRouter([
   {
@@ -28,6 +28,10 @@ const appRouter = createBrowserRouter([
         element: <PageSignUp />,
       },
     ],
+  },
+  {
+    path: '/integrations/google/oauth2/callback',
+    element: <GoogleCallback />,
   },
 ])
 

@@ -21,6 +21,10 @@ export const LayoutAuth = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          backgroundImage: 'url("/images/black-wooden-plank.jpg")',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
         }}
       >
         <Outlet />
